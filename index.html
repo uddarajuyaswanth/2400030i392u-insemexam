@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {border-collapse:collapse;width:60%;margin:20px auto;font-family:sans-serif;}
+th,td {border:1px solid #ccc;padding:8px;text-align:left;}
+th {background:#f2f2f2;cursor:pointer;}
+tr:nth-child(even){background:#f9f9f9;}
+tr:hover{background:#e6f7ff;}
+</style>
+</head>
+<body>
+<h3 style="text-align:center;">Employee Data</h3>
+
+<table id="empTable">
+<tr>
+  <th onclick="sortTable(0)">Name</th>
+  <th onclick="sortTable(1)">Department</th>
+  <th onclick="sortTable(2)">Salary</th>
+</tr>
+<tr><td>Alice</td><td>HR</td><td>55000</td></tr>
+<tr><td>Bob</td><td>Engineering</td><td>75000</td></tr>
+<tr><td>Charlie</td><td>Marketing</td><td>60000</td></tr>
+<tr><td>David</td><td>Finance</td><td>72000</td></tr>
+<tr><td>Eve</td><td>Engineering</td><td>68000</td></tr>
+</table>
+
+<script>
+let dir=true;
+function sortTable(n){
+  const t=document.getElementById("empTable");
+  let rows=[...t.rows].slice(1);
+  rows.sort((a,b)=>{
+    let x=a.cells[n].innerText, y=b.cells[n].innerText;
+    if(!isNaN(x)&&!isNaN(y)){x=+x;y=+y;}
+    return dir?(x>y?1:-1):(x>y?-1:1);
+  });
+  dir=!dir;
+  rows.forEach(r=>t.appendChild(r));
+}
+</script>
+</body>
+</html>
