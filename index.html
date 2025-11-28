@@ -1,43 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-table {border-collapse:collapse;width:60%;margin:20px auto;font-family:sans-serif;}
-th,td {border:1px solid #ccc;padding:8px;text-align:left;}
-th {background:#f2f2f2;cursor:pointer;}
-tr:nth-child(even){background:#f9f9f9;}
-tr:hover{background:#e6f7ff;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yaswanth Varma | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h3 style="text-align:center;">Employee Data</h3>
+  <header>
+    <h1>Yaswanth Varma</h1>
+    <p>Second Year B.Tech Student | Passionate about Web Development & Design</p>
+  </header>
 
-<table id="empTable">
-<tr>
-  <th onclick="sortTable(0)">Name</th>
-  <th onclick="sortTable(1)">Department</th>
-  <th onclick="sortTable(2)">Salary</th>
-</tr>
-<tr><td>Alice</td><td>HR</td><td>55000</td></tr>
-<tr><td>Bob</td><td>Engineering</td><td>75000</td></tr>
-<tr><td>Charlie</td><td>Marketing</td><td>60000</td></tr>
-<tr><td>David</td><td>Finance</td><td>72000</td></tr>
-<tr><td>Eve</td><td>Engineering</td><td>68000</td></tr>
-</table>
+  <section class="about">
+    <h2>About Me</h2>
+    <p>
+      I’m a student at KL University, interested in creating responsive and modern websites.
+      I enjoy learning new technologies and improving my design and coding skills.
+    </p>
+  </section>
 
-<script>
-let dir=true;
-function sortTable(n){
-  const t=document.getElementById("empTable");
-  let rows=[...t.rows].slice(1);
-  rows.sort((a,b)=>{
-    let x=a.cells[n].innerText, y=b.cells[n].innerText;
-    if(!isNaN(x)&&!isNaN(y)){x=+x;y=+y;}
-    return dir?(x>y?1:-1):(x>y?-1:1);
-  });
-  dir=!dir;
-  rows.forEach(r=>t.appendChild(r));
-}
-</script>
+  <section class="employees">
+    <h2>Employee</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Vijay kumar</h3>
+        <p>A responsive website showcasing popular destinations and booking options.</p>
+      </div>
+      <div class="project-card">
+        <h3>Abhishith</h3>
+        <p>Personal portfolio designed using HTML5, CSS Flexbox, and media queries.</p>
+      </div>
+      
+    </div>
+  </section>
+
+  
 </body>
 </html>
